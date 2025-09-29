@@ -100,5 +100,3 @@ cd client
 npm install
 npm start
 ```
-    ├── aiPrompts.js
-    └── scoring.js
