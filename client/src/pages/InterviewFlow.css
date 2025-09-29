@@ -1,0 +1,428 @@
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes timerPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: #10b981;
+  }
+  50% {
+    transform: scale(1.1);
+    color: #059669;
+  }
+}
+
+@keyframes timerWarning {
+  0%, 100% {
+    transform: scale(1);
+    color: #f59e0b;
+  }
+  50% {
+    transform: scale(1.15);
+    color: #d97706;
+  }
+}
+
+@keyframes timerDanger {
+  0%, 100% {
+    transform: scale(1);
+    color: #ef4444;
+  }
+  50% {
+    transform: scale(1.2);
+    color: #dc2626;
+  }
+}
+
+@keyframes progressShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes feedbackSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes typeWriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.interview-flow-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  position: relative;
+}
+
+.interview-flow-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  opacity: 0.03;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ant-card {
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  border: none;
+  overflow: hidden;
+  animation: slideInDown 0.6s ease-out;
+  position: relative;
+  background: white;
+}
+
+.ant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0ea5e9, #6366f1, #0ea5e9);
+  background-size: 200% 100%;
+  animation: progressShine 2s linear infinite;
+}
+
+.ant-card-head {
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  color: white;
+  border: none;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ant-card-head::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ant-card-head-title {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1;
+  position: relative;
+}
+
+.ant-card-head-title::before {
+  content: '💡';
+  font-size: 28px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.ant-card-body {
+  padding: 32px;
+}
+
+.question-block {
+  padding: 24px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  border: 2px solid #bae6fd;
+  position: relative;
+  overflow: hidden;
+}
+
+.question-block::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #0ea5e9, #6366f1);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.question-block:hover::before {
+  opacity: 0.1;
+}
+
+.ant-typography h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.meta-row > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.meta-row > div:first-child {
+  color: #6366f1;
+  font-size: 15px;
+}
+
+.meta-row > div:first-child::before {
+  content: '🎯';
+  font-size: 18px;
+}
+
+.meta-row > div:last-child {
+  font-size: 16px;
+}
+
+.meta-row > div:last-child::before {
+  content: '⏱️';
+  font-size: 20px;
+}
+
+.meta-row > div:last-child strong {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  animation: timerPulse 2s ease-in-out infinite;
+  min-width: 60px;
+  text-align: center;
+  display: inline-block;
+}
+
+.meta-row > div:last-child strong.warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  animation: timerWarning 1s ease-in-out infinite;
+}
+
+.meta-row > div:last-child strong.danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  animation: timerDanger 0.5s ease-in-out infinite;
+}
+
+.ant-input-textarea textarea {
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  padding: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+.ant-input-textarea textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.actions .ant-btn {
+  height: 44px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 0 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.actions .ant-btn:first-child {
+  background: white;
+  border: 2px solid #e2e8f0;
+  color: #64748b;
+}
+
+.actions .ant-btn:first-child:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.actions .ant-btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  border: none;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+.actions .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #6366f1 0%, #0ea5e9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+}
+
+.ant-progress {
+  margin-top: 24px;
+}
+
+.ant-progress-bg {
+  background: linear-gradient(90deg, #0ea5e9 0%, #6366f1 100%) !important;
+  height: 12px !important;
+  border-radius: 6px;
+}
+
+.ant-progress-outer {
+  background: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.feedback {
+  margin-top: 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-radius: 16px;
+  border: 2px solid #86efac;
+  animation: feedbackSlideIn 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback::before {
+  content: '✨';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 32px;
+  opacity: 0.3;
+}
+
+.feedback p {
+  margin: 0;
+  color: #166534;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.feedback p:first-child {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.feedback p strong {
+  color: #15803d;
+  font-size: 16px;
+}
+
+.feedback p:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.start-interview-container {
+  text-align: center;
+  padding: 60px 32px;
+}
+
+.start-interview-container .ant-btn {
+  height: 56px;
+  font-size: 18px;
+  padding: 0 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  border: none;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+  font-weight: 700;
+}
+
+.start-interview-container .ant-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.5);
+}
+
+@media (max-width: 768px) {
+  .interview-flow-container {
+    padding: 24px 16px;
+  }
+  
+  .ant-card-body {
+    padding: 24px 20px;
+  }
+  
+  .meta-row {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+  
+  .actions .ant-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,291 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0) rotate(45deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(45deg);
+  }
+  100% {
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+.interviewee-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  position: relative;
+}
+
+.interviewee-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.03;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.upload-card {
+  margin-bottom: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  border: none;
+  overflow: hidden;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+}
+
+.upload-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #667eea, transparent);
+  animation: shimmer 2s infinite;
+}
+
+.upload-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(102, 126, 234, 0.15);
+}
+
+.upload-card .ant-card-head {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 20px 24px;
+}
+
+.upload-card .ant-card-head-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-card .ant-card-head-title::before {
+  content: '📄';
+  font-size: 24px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.details-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  border: none;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+  position: relative;
+  background: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.details-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
+  animation: shimmer 2s infinite 0.5s;
+}
+
+.details-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(16, 185, 129, 0.15);
+}
+
+.details-card .ant-card-head {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 20px 24px;
+}
+
+.details-card .ant-card-head-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.details-card .ant-card-head-title::before {
+  content: '✓';
+  font-size: 24px;
+  animation: checkmark 0.6s ease-out;
+}
+
+.ant-upload-wrapper {
+  position: relative;
+}
+
+.ant-upload-select {
+  border: 2px dashed #667eea !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%) !important;
+  transition: all 0.3s ease !important;
+  padding: 30px !important;
+}
+
+.ant-upload-select:hover {
+  border-color: #764ba2 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f2ff 100%) !important;
+  transform: scale(1.02);
+}
+
+.ant-upload-list-item {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 8px;
+  border: 1px solid #bae6fd;
+  padding: 12px !important;
+  margin-top: 12px !important;
+  transition: all 0.3s ease;
+}
+
+.ant-upload-list-item:hover {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  transform: translateX(4px);
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.ant-btn-lg {
+  height: 48px !important;
+  font-size: 16px !important;
+  padding: 0 32px !important;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.ant-descriptions-bordered .ant-descriptions-item-label {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  font-weight: 600;
+  color: #374151;
+}
+
+.ant-descriptions-bordered .ant-descriptions-item-content {
+  background: white;
+  color: #1f2937;
+}
+
+.ant-descriptions-row:hover .ant-descriptions-item-label,
+.ant-descriptions-row:hover .ant-descriptions-item-content {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  transition: all 0.3s ease;
+}
+
+.ant-form-item-label > label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.ant-input,
+.ant-input:focus {
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.ant-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.details-verification-card {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 2px solid #fed7aa;
+  border-radius: 12px;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.details-verification-card p {
+  color: #9a3412;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.start-interview-container {
+  margin-top: 24px;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-radius: 12px;
+  border: 2px solid #bbf7d0;
+}
+
+@media (max-width: 768px) {
+  .interviewee-container {
+    padding: 24px 16px;
+  }
+  
+  .upload-card,
+  .details-card {
+    margin-bottom: 24px;
+  }
+}
