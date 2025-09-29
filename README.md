@@ -82,7 +82,7 @@ The app supports **resume parsing, AI-driven interview question flow, scoring, a
 
 ### 1. Clone Repository
 ```bash
-git clone [<repo_url>](https://github.com/007VICKY007/Swipe-Prototype.git)
+git clone https://github.com/007VICKY007/Swipe-Prototype.git
 cd interview-assistant-crisp
 ```
 
